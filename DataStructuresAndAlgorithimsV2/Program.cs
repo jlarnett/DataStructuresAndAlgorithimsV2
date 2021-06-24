@@ -19,6 +19,11 @@ namespace DataStructuresAndAlgorithimsV2
 
             int[] boxes2 = {1, 2, 3, 4, 5};
             LogAllPairsOfArray(boxes2);
+
+            Booooo(new []{1, 2, 3, 5, 6});
+
+            ArrayOfHighNTimes(new[] {1, 2, 3, 4, 5, 7, 8});
+
         }
 
         public static void FindNemo(string[] array)
@@ -52,6 +57,28 @@ namespace DataStructuresAndAlgorithimsV2
             }
         }
 
+        public static void Booooo(int[] array)
+        {
+            // O(1) Space Complexity for function.
+            for (int i = 0; i < array.Length; i++)      //int i = 1 -> O(1) Space Complexity.
+            {
+                Console.WriteLine("boooooooo!");
+            }
+        }
 
+
+        public static int[] ArrayOfHighNTimes(int[] array)
+        {
+            // O(n) Space Complexity for function.
+
+            int[] hiArray = new int[] {};
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                hiArray[i] = array[i];
+            }
+
+            return hiArray;
+        }
     }
 }
