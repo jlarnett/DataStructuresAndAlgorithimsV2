@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,10 +26,110 @@ namespace DataStructuresAndAlgorithimsV2
             string last = array[array.Length - 1].Message;              //O(1)
         }
 
-        public class Tweet
+        public static bool CheckCommonItems(char[] array1, char[] array2)
         {
-            public string Message { get; set; }
-            public int Date { get; set; }
+            //Give 2 arrays, return bool whether two arrays contain common item.
+            //2 parameters both are arrays. - No Size Limit
+            //Return true or false.
+
+
+            //Quick but inefficient approach. O(a * b) time complexity.
+            for (int i = 0; i < array1.Length; i++)
+            {
+               for (int j = 0; j < array2.Length; j++)
+               {
+                    if (array1[i] == array2[j])
+                        return true;
+               }
+            }
+
+            return false;
+        }
+
+        public static bool CheckCommonItems2(char[] array1, char[] array2)
+        {
+            //Give 2 arrays, return bool whether two arrays contain common item.
+            //2 parameters both are arrays. - No Size Limit
+            //Return true or false.
+
+            //loop through first array and create object where properties = items in the array.
+            //loop through 2nd array and check if item in 2nd array exist on created object.
+            //O(a + b)
+
+            Dictionary<char, bool> pairs = new Dictionary<char, bool>();
+
+            for (int i = 0; i < array1.Length; i++)
+            {
+                if (!pairs.ContainsKey(array1[i]))
+                {
+                    pairs.Add(array1[i], true);
+                }
+            }
+
+            for (int i = 0; i < array2.Length; i++)
+            {
+                if (pairs.ContainsKey(array2[i]))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        public static void FindNemo(string[] array)
+        {
+            // O(n) -> Linear Time
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == "nemo")
+                {
+                    Console.WriteLine("Found Nemo");
+                }
+            }
+        }
+
+        public static void LogFirstTwoBoxes(int[] boxes)
+        {
+            // O(1) -> Constant Time
+            Console.WriteLine(boxes[0]);
+            Console.WriteLine(boxes[1]);
+        }
+
+        public static void LogAllPairsOfArray(int[] array)
+        {
+            // O(n^2) -> Exponential Time
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length; j++)
+                {
+                    Console.WriteLine("Item 1: {0}, Item 2: {1}", array[i], array[j]);
+                }
+            }
+        }
+
+        public static void Booooo(int[] array)
+        {
+            // O(1) Space Complexity for function.
+            for (int i = 0; i < array.Length; i++)      //int i = 1 -> O(1) Space Complexity.
+            {
+                Console.WriteLine("boooooooo!");
+            }
+        }
+
+        public static int[] ArrayOfHighNTimes(int[] array)
+        {
+            // O(n) Space Complexity for function.
+
+            int[] hiArray = new int[] {};
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                hiArray[i] = array[i];
+            }
+
+            return hiArray;
         }
     }
 }
