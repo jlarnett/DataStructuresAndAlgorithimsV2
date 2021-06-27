@@ -7,9 +7,11 @@ namespace DataStructuresAndAlgorithimsV2
     {
         static void Main(string[] args)
         {
-            var containedCommonItem = FunctionHolder.CheckCommonItems2(new[] {'n', 'b', 'c'}, new[] {'c', 'a', 'j', 'l'});
-            Console.WriteLine(containedCommonItem);
-        }
+            var val = FunctionHolder.ReverseString("This is a string to reverse");
+            Console.WriteLine(val);
 
+            var val2 = FunctionHolder.ReverseString2("Test String");
+            Console.WriteLine(val2);
+        }
     }
 }

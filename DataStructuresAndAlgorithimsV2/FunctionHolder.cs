@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,69 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class FunctionHolder
     {
+
+        public static string ReverseString(string incomingString)
+        {
+            //Reverses string without converting to array directly.
+            //O(n)
+            string result = String.Empty;
+
+            for (int i = incomingString.Length - 1; i >= 0; i--)
+            {
+                result += incomingString[i];
+            }
+
+            return result;
+        }
+
+        public static string ReverseString2(string incomingString)
+        {
+            //Built in C# way to reverse strings after converting to array.
+            char[] chars = incomingString.ToCharArray();
+            Array.Reverse(chars);
+
+            return new string(chars);
+        }
+
+
+
+        public static void ArrayIntro()
+        {
+            //4 * 4 16 bytes of storage.
+            string[] strings = {"a", "b", "c","d"};
+
+            ArrayList strings2 = new ArrayList()
+            {
+                "a",
+                "b",
+                "c",
+                "d"
+            };
+
+
+            //Access -> O(1)
+            var b = strings[2];
+
+            //push -> O(1)
+            strings2.Add("e");
+
+            //pop -> 0(1)
+            strings2.RemoveAt(strings2.Count - 1);
+
+            //O(n)
+            strings2.Insert(0, "a");
+
+            //Dynamic vs Static arrays
+            //arraylist = dynamic array
+
+            int[] numbers = new int[50];
+
+
+
+        }
+
+
+
         public static void TwitterExerciseFunction()
         {
             //O(1) -> Time Complexity
