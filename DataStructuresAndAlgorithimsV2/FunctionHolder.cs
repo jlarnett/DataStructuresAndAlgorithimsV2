@@ -10,6 +10,96 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class FunctionHolder
     {
+        public static int[] MergeSortedArrays(int[] array1, int[] array2, int n1, int n2, int[] arr3)
+        {
+            //i array 1 iterator
+            int i = 0;
+
+            //j array 2 iterator
+            int j = 0;
+
+            //k array 3 iterator -> output array iterator.
+            int k = 0;
+
+
+            while (i < n1 && j < n2)
+            {
+
+                //While we can compare array elements to each other. E.G. since sorted array there is a reason to compare
+                if (array1[i] < array2[j])
+                {
+                    //array1 item < array2 item -> Add array1 item to output array.
+                    //Increment output array & array 1
+
+                    arr3[k] = array1[i];
+                    k++;
+                    i++;
+                }
+                else
+                {
+
+                    //array 2 item < array1 item -> Add array2 item to output array.
+                    //Increment output array & array 2
+                    arr3[k] = array2[j];
+                    k++;
+                    j++;
+                }
+            }
+
+            while (i < n1)
+            {
+                //After one of the arrays iterators is out of bounds. Figure out which one then add remaining elements to output array.
+                arr3[k] = array1[i];
+                k++;
+                i++;
+            }
+
+            while (j < n2)
+            {
+                //After one of the arrays iterators is out of bounds. Figure out which one then add remaining elements to output array.
+                arr3[k] = array2[j];
+                k++;
+                j++;
+            }
+
+            return arr3;
+        }
+
+
+        public static int[] TwoSum(int[] nums, int target)
+        {
+            //O(n)
+            //Given int array & target value. 
+            //Return index of 2 numbers such they add up to target value.
+            //Each input will have exactly one solution, May not use same element twice.
+
+            //Create a dictionary to hold values and index
+            var numsDictionary = new Dictionary<int, int>();
+
+            //Loops through input array.
+            for (int i = 0; i < nums.Length; i++)
+            {
+                //Get number form array.
+                int num = nums[i];
+
+                //check if num is greater than target.
+                if (num > target)
+                    continue;
+
+                //Check the dictionary for the complementary number to num. If it finds the complementary value key returns index of it.
+                if (numsDictionary.TryGetValue(target - num, out int index))
+                {
+                    //Returns the current loop index & Found complementary number index.
+                    return new[] {index, i};
+                }
+
+                //If loop couldn't find complementary number for rotation then adds the current number and index to dictionary.
+                numsDictionary[num] = i;
+            }
+
+            return null;
+        }
+
 
         public static string ReverseString(string incomingString)
         {
