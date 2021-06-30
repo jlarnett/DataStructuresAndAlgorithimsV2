@@ -10,6 +10,41 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class FunctionHolder
     {
+        public static int RomanToInt(string s)
+        {
+            Dictionary<char, int> RomanMap = new Dictionary<char, int>()
+            {
+                {'I', 1},
+                {'V', 5},
+                {'X', 10},
+                {'L', 50},
+                {'C', 100},
+                {'D', 500},
+                {'M', 1000}
+            };
+        
+            int number = 0;
+
+            //Loops through Roman numeral string
+            for (int i = 0; i < s.Length; i++)
+            {
+                //Checks whether the roman[i] value is < roman[i +1]. If it is it does the pre-subtraction before moving on to next roman numeral as normal..
+                if (i + 1 < s.Length && RomanMap[s[i]] < RomanMap[s[i + 1]])
+                {
+                    number -= RomanMap[s[i]];
+                }
+                else
+                {
+                    //If next number is smaller than it simply adds to total number
+                    number += RomanMap[s[i]];
+                }
+            }
+        
+            return number;
+        }
+
+
+
         public static int[] MergeSortedArrays(int[] array1, int[] array2, int n1, int n2, int[] arr3)
         {
             //i array 1 iterator
@@ -65,6 +100,22 @@ namespace DataStructuresAndAlgorithimsV2
             return arr3;
         }
 
+        public static int? FirstRecurringElement(int[] characters)
+        {
+            HashSet<int> chars = new HashSet<int>();
+
+            for (int i = 0; i < characters.Length; i++)
+            {
+                if (chars.Contains(characters[i]))
+                {
+                    return characters[i];
+                }
+
+                chars.Add(characters[i]);
+            }
+
+            return null;
+        }
 
         public static int[] TwoSum(int[] nums, int target)
         {
