@@ -12,17 +12,26 @@ namespace DataStructuresAndAlgorithimsV2
             //HashTables();
 
 
-            HashTable table = new HashTable(10);
-            table.Set("grapes", 1000);
-            table.Set("Apples", 50);
-            table.Set("Gore", 30);
+            //HashTable table = new HashTable(10);
+            //table.Set("grapes", 1000);
+            //table.Set("Apples", 50);
+            //table.Set("Gore", 30);
 
 
-            foreach (var key in table.Keys())
-            {
-                Console.WriteLine(key + ": " + table.Get(key));
-            }
+            //foreach (var key in table.Keys())
+            //{
+            //    Console.WriteLine(key + ": " + table.Get(key));
+            //}
+
+
+            //int result = FunctionHolder.FirstRecurringElement(new[] {1, 5, 3, 10, 20, 4, 5, 3}).GetValueOrDefault();
+            //Console.WriteLine(result.ToString());
+
+            FunctionHolder.RomanToInt("MCMXCIV");
+
         }
+
+
 
         static void MergeArrays()
         {
