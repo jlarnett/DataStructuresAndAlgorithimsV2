@@ -1,0 +1,47 @@
+[33mcommit 6823da7a3e07ca5389955b2dcff4dfa6df5e5ef3[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m)[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Tue Jun 29 22:40:01 2021 -0400
+
+    Added Recurring character hash algorithm and Roman numeral to int algorithm
+
+[33mcommit f6b5c5da7f4e93bbaf993567f4751bad3c45f41c[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Tue Jun 29 00:11:10 2021 -0400
+
+    Added Hash Table Implementation & Two Sum Algorithm
+
+[33mcommit 11a3682f3c6bb6fa4e0658426dcfb7da59b916b0[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Sun Jun 27 00:36:20 2021 -0400
+
+    Added Array implementation & Reverse String Algorithm
+
+[33mcommit dddec5dcf1c0d96dde2f8e9443b2330cf26a1c00[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Fri Jun 25 01:38:27 2021 -0400
+
+    Added some real algorithm solution solving. Also Seperated a class.
+
+[33mcommit aa8dd18927970df1064493612ac94c4179f4d8ea[m[33m ([m[1;31mGithubDataStructureV2/master[m[33m)[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Wed Jun 23 22:43:56 2021 -0400
+
+    Added more functions and static class to hold functions.
+
+[33mcommit 4cf5c8f90a156cd53d1f8f7efdf1fb01d91a35fc[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Wed Jun 23 00:39:40 2021 -0400
+
+    Added some Data Structures with O notation
+
+[33mcommit 7bfe502d5628593bd34da55a83ce9109536e4ca6[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Mon Jun 21 22:22:20 2021 -0400
+
+    Add project files.
+
+[33mcommit ebc1b6e6545b0b3cfdc32d3cddf8e4b4d877434e[m
+Author: Johnny Arnett <im10g@hotmail.com>
+Date:   Mon Jun 21 22:22:18 2021 -0400
+
+    Add .gitignore and .gitattributes.
