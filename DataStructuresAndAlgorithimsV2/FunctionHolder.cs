@@ -274,7 +274,7 @@ namespace DataStructuresAndAlgorithimsV2
             //Return true or false.
 
 
-            //Quick but inefficient approach. O(a * b) time complexity.
+            //inefficient approach. O(a * b) time complexity.
             for (int i = 0; i < array1.Length; i++)
             {
                for (int j = 0; j < array2.Length; j++)

@@ -29,7 +29,7 @@ namespace DataStructuresAndAlgorithimsV2
 
             //FunctionHolder.RomanToInt("MCMXCIV");
 
-            int result = FunctionHolder.RemoveDuplicateElementsSortedArray2(new[] {1, 2, 4, 5, 5, 6, 6, 7, 8, 10});
+            int result = FunctionHolder.RemoveDuplicateElementsSortedArray(new[] {1, 2, 4, 5, 5, 6, 6, 7, 8, 10});
             Console.WriteLine(result.ToString());
 
         }
