@@ -27,7 +27,10 @@ namespace DataStructuresAndAlgorithimsV2
             //int result = FunctionHolder.FirstRecurringElement(new[] {1, 5, 3, 10, 20, 4, 5, 3}).GetValueOrDefault();
             //Console.WriteLine(result.ToString());
 
-            FunctionHolder.RomanToInt("MCMXCIV");
+            //FunctionHolder.RomanToInt("MCMXCIV");
+
+            int result = FunctionHolder.RemoveDuplicateElementsSortedArray2(new[] {1, 2, 4, 5, 5, 6, 6, 7, 8, 10});
+            Console.WriteLine(result.ToString());
 
         }
 

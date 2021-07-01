@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,41 @@ namespace DataStructuresAndAlgorithimsV2
             }
         
             return number;
+        }
+
+
+        public static int RemoveDuplicateElementsSortedArray(int[] nums)
+        {
+            //O(n)
+            //Check for invalid inputs
+            if(nums == null || nums.Length == 0)
+                return 0;
+        
+            //Create indexes to help with tracking array position for duplicated values.
+            int duplicated = 0;
+            int prev = int.MinValue;
+            int idx = 0;
+
+            foreach(int item in nums)
+            {
+                //Checks if prev value == to the current value.
+                if(prev == item)
+                {
+                    //If item is duplicated increase duplicated indexer
+                    duplicated++;
+                }   
+            
+                //assign the item to the correct index using duplicated indexer to track index difference.
+                nums[idx - duplicated] = item;
+            
+                //Assign prev = current item before iterating
+                prev = item;
+
+                //increment indexer.
+                idx++;
+            }
+        
+            return nums.Length - duplicated;
         }
 
 
