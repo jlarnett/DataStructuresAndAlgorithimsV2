@@ -8,6 +8,59 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class StringFunctionHolder
     {
+
+
+        public static bool CheckParenthesisAreValid(string s)
+        {
+            //O(n) Runtime Complexity. 22.6MB memory usage.
+
+            //Check for invalid inputs
+            if (s == null || s == string.Empty)
+            {
+                return true;
+            }
+
+            //Create dictionary to check for matching parenthesis values
+            Dictionary<char, char> parenthesis = new Dictionary<char, char>();
+
+            //Add the parenthesis using the end parenthesis as the key.
+            parenthesis.Add(')', '(');
+            parenthesis.Add(']', '[');
+            parenthesis.Add('}', '{');
+
+            //Create a stack to store the parenthesis in a LIFO manner Last in first out. 
+            Stack<char> stack = new Stack<char>();
+
+
+            //Loop through all values in the input string
+            foreach (var item in s)
+            {
+                //We check if the item we are on is end parenthesis
+                if (item == ')' || item == ']' || item == '}')
+                {
+                    //We check for items in stack. If items are in stack we verify that the item as top of stack is matching parenthesis
+                    //If it matches the dictionary value we remove the parenthesis. If it doesn't match we return false.
+                    if (stack.Count > 0 && stack.Peek() == parenthesis[item])
+                        stack.Pop();
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    //If item is not ending parenthesis then we push it onto stack.
+                    stack.Push(item);
+                }
+            }
+
+            //Returns whether all parenthesis were ended by algorithm. True == 0, False > 0.
+            return stack.Count == 0;
+        }
+
+
+
+
         public static string ReverseString(string incomingString)
         {
             //Reverses string without converting to array directly.
