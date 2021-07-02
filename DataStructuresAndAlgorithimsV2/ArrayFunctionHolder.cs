@@ -42,6 +42,39 @@ namespace DataStructuresAndAlgorithimsV2
             return nums.Length - duplicated;
         }
 
+        public static int RemoveElementFromArrayInPlace(int[] nums, int val)
+        {
+            //O(n) runtime.
+            //In place means multiple indexers
+            //Index that accurate with removed elements
+            int slowIndex = 0;
+
+            //General index to iterate through array without change. Always incremented
+            int fastIndex = 0;
+
+
+            //While both indexes are within array length
+            while (slowIndex <= nums.Length - 1 && fastIndex <= nums.Length - 1)
+            {
+                if (nums[fastIndex] != val)
+                {
+                    //If current value is NOT target value to remove.
+                    //Assign basic indexer position value to newArray indexer position
+                    //Increment BOTH indexers
+                    nums[slowIndex++] = nums[fastIndex++];
+                }
+                else
+                {
+                    //If current value == value to be removed
+                    //No Assignments, just increment the basic indexer
+                    fastIndex++;
+                }
+            }
+
+            //Return value of slowIndex. E.G. index that mirrors arraySize without removed elements.
+            return slowIndex;
+        }
+
         public static bool CheckCommonItems(char[] array1, char[] array2)
         {
             //Give 2 arrays, return bool whether two arrays contain common item.
