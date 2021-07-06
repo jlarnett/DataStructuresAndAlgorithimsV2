@@ -11,6 +11,32 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class ExampleFunctionHolder
     {
+
+
+
+        public static void LinkedListExample()
+        {
+            LinkedList<string> list = new LinkedList<string>();
+
+            list.AddFirst(new LinkedListNode<string>("Grape"));
+            list.AddLast(new LinkedListNode<string>("Pair"));
+
+            LinkedListNode<string> current = list.Find("Grape");
+            list.AddBefore(current, "Lemon");
+
+
+            foreach (var node in list)
+            {
+                Console.WriteLine(node.ToString());
+            }
+        }
+
+
+
+
+
+
+
         public static void ArrayIntro()
         {
             //4 * 4 16 bytes of storage.
