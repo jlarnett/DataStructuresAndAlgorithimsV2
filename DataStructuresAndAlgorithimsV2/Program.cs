@@ -8,7 +8,11 @@ namespace DataStructuresAndAlgorithimsV2
     {
         static void Main(string[] args)
         {
-            ExampleFunctionHolder.LinkedListExample();
+            LinkedList newList = new LinkedList(20);
+            newList.Append(45);
+            newList.Prepend(15);
+
+            newList.PrintList();
         }
     }
 }

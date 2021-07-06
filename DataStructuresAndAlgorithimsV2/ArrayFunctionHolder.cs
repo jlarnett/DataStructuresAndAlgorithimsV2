@@ -8,6 +8,26 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class ArrayFunctionHolder
     {
+
+        public static int SearchInsertPosition(int[] nums, int target)
+        {
+            //O(n)
+            //Sorted Array return insert position.
+
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                //Loops through array
+                if (nums[i] >= target)
+                {
+                    //Checks if the current value is larger than or equal to target. 
+                    return i;
+                }
+            }
+
+            return nums.Length;
+        }
+
         public static int RemoveDuplicateElementsSortedArray(int[] nums)
         {
             //O(n)
