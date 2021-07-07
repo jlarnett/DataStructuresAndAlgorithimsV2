@@ -35,6 +35,7 @@ namespace DataStructuresAndAlgorithimsV2
 
         public void Append(int value)
         {
+            //O(1)
             //Instantiate a new node.
             Node newNode = new Node(value);
 
@@ -50,6 +51,7 @@ namespace DataStructuresAndAlgorithimsV2
 
         public void Prepend(int value)
         {
+            //O(1)
             //Create New node
             Node newNode = new Node(value);
 
@@ -65,33 +67,71 @@ namespace DataStructuresAndAlgorithimsV2
 
         public void Insert(int index, int value)
         {
+            //O(n)
+            //Get index within list range. 
             index = WrapIndex(index);
 
+            //If the index is beginning of list. Prepend
             if (index == 0)
             {
                 Prepend(value);
                 return;
             }
 
+            //If the index is end of list. Append
             if (index == length - 1)
             {
                 Append(value);
                 return;
             }
 
+            //Create a new node to insert into list. 
             Node newNode = new Node(value);
 
+            //Get access to Node before index to insert at. 
             Node leader = TraverseToIndex(index - 1);
+
+            //Create a node holdingPointer = leaderNode.Next
             Node holdingPointer = leader.Next;
 
+            //
             leader.Next = newNode;
             newNode.Next = holdingPointer;
 
             this.length++;
         }
 
+        public void Remove(int index)
+        {
+            //O(n)
+            //Get index within list range.
+            index = WrapIndex(index);
+
+            //Check if index is head of list. 
+            if (index == 0)
+            {
+                //Move the head forward one node.
+                head = head.Next;
+                return;
+            }
+
+            //Get the Node prior to index
+            Node leader = TraverseToIndex(index - 1);
+
+            //Get a pointer to the node to remove so we have reference to its next node.
+            Node nodeToRemove = leader.Next;
+            
+            //Change the leader's pointer past the NodeToRemove.
+            leader.Next = nodeToRemove.Next;
+
+
+            //Decrement List. 
+            this.length--;
+        }
+
         public void PrintList()
         {
+            //O(n)
             if (this.head == null)
             {
                 return;
@@ -110,22 +150,30 @@ namespace DataStructuresAndAlgorithimsV2
 
         private Node TraverseToIndex(int index)
         {
+            //O(n)
+            //Create base counter
             int counter = 0;
 
+            //Verify index is within list Range
             index = WrapIndex(index);
+
+            //Creates a current node to iterate with. 
             Node currentNode = head;
 
+            //While the base counter hasn't reached index e.g. 
             while (counter != index)
             {
                 currentNode = currentNode.Next;
                 counter++;
             }
 
+            //Once index is reached. return the current Node.
             return currentNode;
         }
 
         private int WrapIndex(int index)
         {
+            //Returns the correct index, but limits the start to 0 and End to List length - 1;
             return Math.Max(Math.Min(index, this.length - 1), 0);
         }
 

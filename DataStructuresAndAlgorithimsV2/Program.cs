@@ -12,6 +12,9 @@ namespace DataStructuresAndAlgorithimsV2
             newList.Append(45);
             newList.Prepend(15);
 
+            newList.Insert(1, 150);
+
+
             newList.PrintList();
         }
     }
