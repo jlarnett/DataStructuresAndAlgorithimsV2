@@ -8,14 +8,6 @@ namespace DataStructuresAndAlgorithimsV2
     {
         static void Main(string[] args)
         {
-            LinkedList newList = new LinkedList(20);
-            newList.Append(45);
-            newList.Prepend(15);
-
-            newList.Insert(1, 150);
-
-
-            newList.PrintList();
         }
     }
 }

@@ -129,6 +129,38 @@ namespace DataStructuresAndAlgorithimsV2
             this.length--;
         }
 
+        public void Reverse()
+        {
+            //Check for single item in list.
+            if (this.head.Next == null)
+            {
+                return;
+            }
+
+            //reference to head.
+            Node first = head;
+
+            //Reference to second item in list.
+            Node second = first.Next;
+
+            tail = head;
+
+
+            while (second != null)
+            {
+                Node temp = second.Next;
+                second.Next = first;
+
+                first = second;
+                second = temp;
+
+            }
+
+            head.Next = null;
+            head = first;
+
+        }
+
         public void PrintList()
         {
             //O(n)

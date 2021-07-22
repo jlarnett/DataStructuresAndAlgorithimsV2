@@ -9,6 +9,39 @@ namespace DataStructuresAndAlgorithimsV2
     public static class StringFunctionHolder
     {
 
+        public static bool IsPalindrome(string s)
+        {
+            //O(n)
+            
+            var n = s.Length;
+
+            var left = 0;
+            var right = n - 1;
+
+            while (left < right)
+            {
+                if (!char.IsLetterOrDigit(s[left]))
+                {
+                    left++;
+                }
+                else if (!char.IsLetterOrDigit(s[right]))
+                {
+                    right--;
+                }
+                else
+                {
+                    if (char.ToLower(s[left]) != char.ToLower(s[right]))
+                    {
+                        return false;
+                    }
+
+                    left++;
+                    right--;
+                }
+            }
+
+            return true;
+        }
 
         public static bool CheckParenthesisAreValid(string s)
         {

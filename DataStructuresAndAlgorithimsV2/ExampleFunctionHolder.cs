@@ -11,9 +11,6 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class ExampleFunctionHolder
     {
-
-
-
         public static void LinkedListExample()
         {
             LinkedList<string> list = new LinkedList<string>();
@@ -30,12 +27,6 @@ namespace DataStructuresAndAlgorithimsV2
                 Console.WriteLine(node.ToString());
             }
         }
-
-
-
-
-
-
 
         public static void ArrayIntro()
         {
