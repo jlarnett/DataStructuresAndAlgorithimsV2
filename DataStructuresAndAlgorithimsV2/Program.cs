@@ -9,13 +9,20 @@ namespace DataStructuresAndAlgorithimsV2
     {
         static void Main(string[] args)
         {
-            MyStackArray newStack = new MyStackArray();
+            MyQueue newQueue = new MyQueue();
+            newQueue.Enqueue("Thomas");
+            newQueue.Enqueue("Baker");
+            newQueue.Enqueue("Cliff");
+            newQueue.Enqueue("Johnson");
 
-            newStack.Push("Discord");
-            newStack.Push("Thomas");
-            newStack.Push("GreekFreak");
+            newQueue.PrintQueue();
 
-            newStack.PrintStack();
+            Console.WriteLine();
+
+            newQueue.Dequeue();
+            newQueue.Dequeue();
+
+            newQueue.PrintQueue();
         }
     }
 }
