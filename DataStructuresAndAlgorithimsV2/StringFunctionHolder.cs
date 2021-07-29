@@ -46,7 +46,6 @@ namespace DataStructuresAndAlgorithimsV2
         public static bool CheckParenthesisAreValid(string s)
         {
             //O(n) Runtime Complexity. 22.6MB memory usage.
-
             //Check for invalid inputs
             if (s == null || s == string.Empty)
             {
