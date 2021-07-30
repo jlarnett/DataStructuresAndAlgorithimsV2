@@ -11,6 +11,23 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class ExampleFunctionHolder
     {
+
+        public static void FakeMethod()
+        {
+            /************************************************
+            *   Fake Method to check double pull request
+            ************************************************/
+
+            Random random = new Random();
+
+            int counter = random.Next(5, 25);
+
+            if (counter > 15)
+            {
+                Console.WriteLine("Fake Method bruh");
+            }
+        }
+
         public static void LinkedListExample()
         {
             LinkedList<string> list = new LinkedList<string>();
