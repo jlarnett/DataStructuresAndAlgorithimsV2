@@ -8,6 +8,20 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class ArrayFunctionHolder
     {
+        public static void FakeArrayMethodForPullRequest()
+        {
+            /*******************************************************
+            *   This is a fake method for testing double pull request?
+            ******************************************************/
+
+            Random random = new Random();
+            int counter = random.Next(1, 10);
+
+            if (counter > 4)
+            {
+                Console.WriteLine("Test pull request method");
+            }
+        }
 
         public static int SearchInsertPosition(int[] nums, int target)
         {
