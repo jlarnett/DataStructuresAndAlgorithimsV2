@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithimsV2
 {
-    public static class ExampleFunctionHolder
+    public static class RandomCourseAlgorithmExamples
     {
 
         public static void LinkedListExample()

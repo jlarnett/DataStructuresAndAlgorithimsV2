@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithimsV2
 {
-    public static class ArrayFunctionHolder
+    public static class ArrayAlgorithms
     {
         public static int SearchInsertPosition(int[] nums, int target)
         {
-            //O(n)
-            //Sorted Array return insert position.
-
+            /*******************************************************************************************************************
+            *   O(n) runtime.
+            *   Returns the position to insert value in a sorted array.
+            *   Just loops through array until it finds a value greater than target value to insert. 
+            *********************************************************************************************************************/
 
             for (int i = 0; i < nums.Length; i++)
             {
@@ -29,7 +31,13 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static int RemoveDuplicateElementsSortedArray(int[] nums)
         {
-            //O(n)
+            /*******************************************************************************************************************
+            *   O(n) runtime.
+            *   Uses duplicated index & regular index to determine array assignment through loops
+            *   keeps track of prev value to compare against current loop value.
+            *********************************************************************************************************************/
+
+
             //Check for invalid inputs
             if(nums == null || nums.Length == 0)
                 return 0;
@@ -63,8 +71,12 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static int RemoveElementFromArrayInPlace(int[] nums, int val)
         {
-            //O(n) runtime.
-            //In place means multiple indexers
+            /*******************************************************************************************************************
+            *   O(n) runtime.
+            *   Removes element from Array in place.
+            *   Uses 2 indexes to control which array elements are assigned and skips assignment when element to remove is found.
+            *********************************************************************************************************************/
+
             //Index that accurate with removed elements
             int slowIndex = 0;
 
@@ -96,12 +108,15 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static bool CheckCommonItems(char[] array1, char[] array2)
         {
-            //Give 2 arrays, return bool whether two arrays contain common item.
-            //2 parameters both are arrays. - No Size Limit
-            //Return true or false.
+            /**********************************************************************************
+            *   Give 2 arrays, return bool whether two arrays contain common item.
+            *   2 parameters both are arrays. - No Size Limit
+            *   Return true or false.
+            *
+            *   inefficient approach. O(a * b) time complexity.
+            *   Double For loop to check array1 against array2
+            **********************************************************************************/
 
-
-            //inefficient approach. O(a * b) time complexity.
             for (int i = 0; i < array1.Length; i++)
             {
                 for (int j = 0; j < array2.Length; j++)
@@ -116,13 +131,16 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static bool CheckCommonItems2(char[] array1, char[] array2)
         {
-            //Give 2 arrays, return bool whether two arrays contain common item.
-            //2 parameters both are arrays. - No Size Limit
-            //Return true or false.
+            /**********************************************************************************
+            *   Give 2 arrays, return bool whether two arrays contain common item.
+            *   2 parameters both are arrays. - No Size Limit
+            *   Return true or false.
+            *
+            *   O(a + b)
+            *   Adds all values in array1 as keys to dictionary. 
+            *   Checks array2 values against dictionary to determine if common item exist.
+            **********************************************************************************/
 
-            //loop through first array and create object where properties = items in the array.
-            //loop through 2nd array and check if item in 2nd array exist on created object.
-            //O(a + b)
 
             Dictionary<char, bool> pairs = new Dictionary<char, bool>();
 
@@ -147,10 +165,12 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static int[] TwoSum(int[] nums, int target)
         {
-            //O(n)
-            //Given int array & target value. 
-            //Return index of 2 numbers such they add up to target value.
-            //Each input will have exactly one solution, May not use same element twice.
+            /**********************************************************************************
+            *   O(n)
+            *   Given int array & target value.
+            *   Return index of 2 numbers such they add up to target value.
+            *   Each input will have exactly one solution, May not use same element twice.
+            **********************************************************************************/
 
             //Create a dictionary to hold values and index
             var numsDictionary = new Dictionary<int, int>();
@@ -181,6 +201,9 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static int? FirstRecurringElement(int[] characters)
         {
+            /*******************************************************************
+            *   O(n)
+            ********************************************************************/
             HashSet<int> chars = new HashSet<int>();
 
             for (int i = 0; i < characters.Length; i++)
@@ -198,6 +221,11 @@ namespace DataStructuresAndAlgorithimsV2
         
         public static int[] MergeSortedArrays(int[] array1, int[] array2, int n1, int n2, int[] arr3)
         {
+
+            /*******************************************************************
+            *   O(n)
+            ********************************************************************/
+
             //i array 1 iterator
             int i = 0;
 
