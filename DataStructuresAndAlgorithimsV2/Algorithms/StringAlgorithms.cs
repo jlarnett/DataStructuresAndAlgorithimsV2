@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace DataStructuresAndAlgorithimsV2
 {
-    public static class StringFunctionHolder
+    public static class StringAlgorithms
     {
 
         public static bool IsPalindrome(string s)
         {
-            //O(n)
-            
+            /**********************************************************************************************
+            *   O(n) runtime
+            *   Checks if string is true palindrome (E.G. Not including symbols or numbers)
+            *   Uses 2 index to check 1 side of sting to other each loop.
+            *   If any character is wrong it returns false instantly.
+            ***********************************************************************************************/
+
             var n = s.Length;
 
             var left = 0;
@@ -45,7 +50,13 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static bool CheckParenthesisAreValid(string s)
         {
-            //O(n) Runtime Complexity. 22.6MB memory usage.
+            /**********************************************************************************************
+            *   O(n) runtime
+            *   Checks if all parenthesis types are formatted correctly. E.G. correct order and all end.
+            *   Uses a stack to verify ending parenthesis are validated correctly. 
+            ***********************************************************************************************/
+
+
             //Check for invalid inputs
             if (s == null || s == string.Empty)
             {
@@ -90,13 +101,14 @@ namespace DataStructuresAndAlgorithimsV2
             return stack.Count == 0;
         }
 
-
-
-
         public static string ReverseString(string incomingString)
         {
-            //Reverses string without converting to array directly.
-            //O(n)
+            /**********************************************************************************************
+            *   O(n) runtime
+            *   Reverse a string without converting to array directly.
+            *   Uses -- iterator to append string letter by letter
+            ***********************************************************************************************/
+
             string result = String.Empty;
 
             for (int i = incomingString.Length - 1; i >= 0; i--)
@@ -109,7 +121,11 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static string ReverseString2(string incomingString)
         {
-            //Built in C# way to reverse strings after converting to array.
+            /**********************************************************************************************
+            *   O(n) runtime
+            *   Built in C# way to reverse strings after converting to array.
+            ***********************************************************************************************/
+
             char[] chars = incomingString.ToCharArray();
             Array.Reverse(chars);
 
@@ -118,6 +134,14 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static int RomanToInt(string s)
         {
+            /**********************************************************************************************
+            *   O(n) runtime
+            *   Converts Roman numeral string to integer value.
+            *   uses a dictionary and loop to add up roman numerals.
+            *   Checks if previous roman numeral is small and determines whether to add or subtract before moving on.
+            ***********************************************************************************************/
+
+
             Dictionary<char, int> RomanMap = new Dictionary<char, int>()
             {
                 {'I', 1},
