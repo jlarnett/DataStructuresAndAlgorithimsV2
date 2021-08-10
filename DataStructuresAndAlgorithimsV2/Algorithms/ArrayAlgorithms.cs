@@ -8,6 +8,85 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class ArrayAlgorithms
     {
+        public static int[] BubbleSort(int[] array)
+        {
+            /*******************************************************************************************************************
+            *   O(n^2) runtime.
+            *   Bubble Sort - Works by nesting for loops and comparing values next to each other and swapping the higher upwards. 
+            *********************************************************************************************************************/
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array.Length - 1; j++)
+                {
+                    if (array[j] > array[j + 1])
+                    {
+                        int temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+
+            return array;
+        }
+
+        public static int[] InsertionSort(int[] array)
+        {
+            /*******************************************************************************************************************
+            *   O(n) runtime at best case -> array is small and close to being sorted
+            *   Insertion Sort - Place values in the correct position as you loop through array. 
+            *********************************************************************************************************************/
+
+            int length = array.Length;
+
+            for (int i = 1; i < length; ++i)
+            {
+                int key = array[i];
+                int j = i - 1;
+
+                while (j >= 0 && array[j] > key)
+                {
+                    array[j + 1] = array[j];
+                    j = j - 1;
+                }
+
+                array[j + 1] = key;
+            }
+
+            return array;
+        }
+
+        public static int[] SelectionSort(int[] array)
+        {
+            /*******************************************************************************************************************
+            *   O(n^2) runtime.
+            *   Selection Sort - Works by finding the smallest value in remaining portion of array and moving it to lowest unsorted index. 
+            *********************************************************************************************************************/
+
+            int length = array.Length;
+
+            for (int i = 0; i < length; i++)
+            {
+                int min = i;
+                int temp = array[i];
+
+                for (int j = i + 1; j < length; j++)
+                {
+                    if (array[j] < array[min])
+                    {
+                        min = j;
+                    }
+                }
+
+                array[i] = array[min];
+                array[min] = temp;
+
+            }
+
+            return array;
+        }
+
         public static int SearchInsertPosition(int[] nums, int target)
         {
             /*******************************************************************************************************************
