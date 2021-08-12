@@ -10,10 +10,14 @@ namespace DataStructuresAndAlgorithimsV2
     {
         static void Main(string[] args)
         {
-            int[] array = {3, 209, 40, 99, 100, 55, 32, 44, 95};
-            var sortedArray = ArrayAlgorithms.InsertionSort(array);
+            int[] array = {3, 2, 1, 5, 20, 55, 400, 70, 24, 11, 5, 42, 990, 1000, 433, 400};
+            PrintArray(array);
 
+            Console.WriteLine();
+
+            int[] sortedArray = ArrayAlgorithms.MergeSortClass.MergeSort(array);
             PrintArray(sortedArray);
+
         }
 
         static void PrintArray(int[] array)
@@ -21,7 +25,7 @@ namespace DataStructuresAndAlgorithimsV2
 
             for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine(array[i].ToString());
+                Console.Write(array[i].ToString() + " : ");
             }
         }
     }

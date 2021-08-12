@@ -8,6 +8,127 @@ namespace DataStructuresAndAlgorithimsV2
 {
     public static class ArrayAlgorithms
     {
+
+        public static class MergeSortClass
+        {
+
+            /*******************************************************************************************************************
+            *   O(n Log n) runtime.
+            *   Merge Sort - Breaks the arrays into smaller components. then merges & compares them recursively. 
+            *********************************************************************************************************************/
+
+            public static int[] MergeSort(int[] array)
+            {
+                //Define array variables
+                int[] left;
+                int[] right;
+
+                int[] result = new int[array.Length];
+
+
+                //Recursive base case to avoid infinite recursion
+                if (array.Length <= 1)
+                    return array;
+
+
+                //Get point of division among array. Declare the size of left array. 
+                int midPoint = array.Length / 2;
+                left = new int[midPoint];
+
+
+                if (array.Length % 2 == 0)
+                {
+                    //Checks if array size is divisible by 2. Determines right side size of array. 
+                    right = new int[midPoint];
+                }
+                else
+                {
+                    //Adds 1 to account for full array size if not divisible by 2. 
+                    right = new int[midPoint + 1];
+                }
+
+                for (int i = 0; i < midPoint; i++)
+                {
+                    //left portion of array assignment
+                    left[i] = array[i];
+                }
+
+                int x = 0;         //x is incrementer for right array. Cant use loop variable because it has to start at midpoint
+
+                for (int i = midPoint; i < array.Length; i++)
+                {
+                    //right portion of array assignment. 
+                    right[x] = array[i];
+                    x++;
+                }
+
+                //Pass the 2 halfs of the arrays recursively to this method. 
+                left = MergeSort(left);
+                right = MergeSort(right);
+
+
+                //Calls the merge method. Which handles comparison of arrays larger than 1.
+                result = Merge(left, right);
+
+                return result;
+            }
+
+            private static int[] Merge(int[] left, int[] right)
+            {
+                //Get result array size & Define array.
+                int resultLength = right.Length + left.Length;
+                int[] result = new int[resultLength];
+
+                //Define iterators for all arrays. 
+                int indexLeft = 0, indexRight = 0, indexResult = 0;
+
+                while (indexLeft < left.Length ||indexRight < right.Length)
+                {
+                    //While left or right iterators are still within array range. 
+
+                    if (indexLeft < left.Length && indexRight < right.Length)
+                    {
+                        //If both arrays still have values in them. 
+                        if (left[indexLeft] <= right[indexRight])
+                        {
+                            //left array value is greater than right array value assign left to result array
+                            result[indexResult] = left[indexLeft];
+                            indexLeft++;
+                            indexResult++;
+                        }
+                        else
+                        {
+                            result[indexResult] = right[indexRight];
+                            indexRight++;
+                            indexResult++;
+                        }
+                    }
+
+                    else if (indexLeft < left.Length)
+                    {
+                        //Assuming only left array values are left. No comparison just assign remaining since already sorted. 
+                        result[indexResult] = left[indexLeft];
+                        indexLeft++;
+                        indexResult++;
+                    }
+                    else if (indexRight < right.Length)
+                    {
+                        //Assuming only right array values are left. No comparison just assign remaining since arrays should already by sorted.
+                        result[indexResult] = right[indexRight];
+                        indexRight++;
+                        indexResult++;
+                    }
+                }
+
+                return result;
+            }
+        }
+
+
+
+
+
+
         public static int[] BubbleSort(int[] array)
         {
             /*******************************************************************************************************************
