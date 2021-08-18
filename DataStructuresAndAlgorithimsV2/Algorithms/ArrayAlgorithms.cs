@@ -478,5 +478,35 @@ namespace DataStructuresAndAlgorithimsV2
 
             return arr3;
         }
+
+        public static int LengthOfLastWord(string s)
+        {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Returns the length of last word in string.
+            *   Checks for the first space when iterating backwards. 
+            ********************************************************************/
+
+            int length = 0;
+
+            for (int i = s.Length; i >= 0; i--)
+            {
+                if (s[i] == ' ')
+                {
+                    if (length == 0)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return length;
+                    }
+                }
+
+                length++;
+            }
+
+            return length;
+        }
     }
 }

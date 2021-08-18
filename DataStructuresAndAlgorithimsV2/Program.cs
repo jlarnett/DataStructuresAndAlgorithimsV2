@@ -18,6 +18,9 @@ namespace DataStructuresAndAlgorithimsV2
             int[] sortedArray = ArrayAlgorithms.MergeSortClass.MergeSort(array);
             PrintArray(sortedArray);
 
+            ArrayList newList = new ArrayList();
+            newList.Add(5);
+
         }
 
         static void PrintArray(int[] array)
