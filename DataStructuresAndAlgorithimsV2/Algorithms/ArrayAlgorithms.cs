@@ -11,6 +11,52 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static class MergeSortClass
         {
+            public class ListNode 
+            {
+                 public int val;
+                 public ListNode next;
+
+                 public ListNode(int val=0, ListNode next=null) 
+                 {
+                     this.val = val;
+                     this.next = next;
+                }
+            }
+
+            public static ListNode DeleteDuplicatesFromSortedList(ListNode head)
+            {
+
+                /*******************************************************************************************************************
+                *   O(n) runtime.
+                *   Deletes duplicates from sorted singly linked list. Basically checks the first value against second and changes pointer if same
+                *********************************************************************************************************************/
+
+
+                //We create a currentNode
+                var node = head;
+
+                //Check for null value as loop progresses
+                while (node != null)
+                {
+                    //If the value of the node & node.next are the same. its duplicate since its a sorted list. 
+                    if ((node.next != null) && (node.next.val == node.val))
+                    {
+                        //change the currentNodes pointer.
+                        node.next = node.next.next;
+                    }
+                    else
+                    {
+                        //Otherwise iterate the node. This only happens during the else to guarantee multiple duplicates are caught. 
+                        node = node.next;
+                    }
+                }
+
+                return head;
+            }
+
+
+
+
 
             /*******************************************************************************************************************
             *   O(n Log n) runtime.
