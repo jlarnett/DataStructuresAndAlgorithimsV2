@@ -23,6 +23,58 @@ namespace DataStructuresAndAlgorithimsV2
                 }
             }
 
+
+
+
+
+            public static string LongestCommonPrefix(string[] strs)
+            {
+
+                /*******************************************************************************************************************
+                *   O(n^2) Runtime? Possibly O(n)
+                *   Given a array of strings. Finds the longest prefix that all strings in array contains. 
+                *********************************************************************************************************************/
+
+                //If only on item in array return the entire string.
+                if (strs.Length == 1)
+                {
+                    return strs[0];
+                }
+
+
+                var prefixString = "";
+
+                //Iterate over the length of the first string in array.
+                for (int i = 0; i < strs[0].Length; i++)
+                {
+
+                    foreach (string str in strs)
+                    {
+                        //If iteration of first string is longer than any word in array. prefix is finished. 
+                        if (i > str.Length - 1)
+                        {
+                            return prefixString;
+                        }
+
+
+                        //If the first array items character != the current strings character. Return prefix. 
+                        if (strs[0][i] != str[i])
+                        {
+                            return prefixString;
+                        }
+                    }
+
+                    prefixString += strs[0][i];
+                }
+
+
+                return prefixString;
+            }
+
+
+
+
+
             public static ListNode DeleteDuplicatesFromSortedList(ListNode head)
             {
 
