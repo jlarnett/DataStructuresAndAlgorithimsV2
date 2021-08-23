@@ -11,112 +11,15 @@ namespace DataStructuresAndAlgorithimsV2
 
         public static class MergeSortClass
         {
-            public class ListNode 
-            {
-                 public int val;
-                 public ListNode next;
-
-                 public ListNode(int val=0, ListNode next=null) 
-                 {
-                     this.val = val;
-                     this.next = next;
-                }
-            }
-
-
-
-
-
-            public static string LongestCommonPrefix(string[] strs)
-            {
-
-                /*******************************************************************************************************************
-                *   O(n^2) Runtime? Possibly O(n)
-                *   Given a array of strings. Finds the longest prefix that all strings in array contains. 
-                *********************************************************************************************************************/
-
-                //If only on item in array return the entire string.
-                if (strs.Length == 1)
-                {
-                    return strs[0];
-                }
-
-
-                var prefixString = "";
-
-                //Iterate over the length of the first string in array.
-                for (int i = 0; i < strs[0].Length; i++)
-                {
-
-                    foreach (string str in strs)
-                    {
-                        //If iteration of first string is longer than any word in array. prefix is finished. 
-                        if (i > str.Length - 1)
-                        {
-                            return prefixString;
-                        }
-
-
-                        //If the first array items character != the current strings character. Return prefix. 
-                        if (strs[0][i] != str[i])
-                        {
-                            return prefixString;
-                        }
-                    }
-
-                    prefixString += strs[0][i];
-                }
-
-
-                return prefixString;
-            }
-
-
-
-
-
-            public static ListNode DeleteDuplicatesFromSortedList(ListNode head)
-            {
-
-                /*******************************************************************************************************************
-                *   O(n) runtime.
-                *   Deletes duplicates from sorted singly linked list. Basically checks the first value against second and changes pointer if same
-                *********************************************************************************************************************/
-
-
-                //We create a currentNode
-                var node = head;
-
-                //Check for null value as loop progresses
-                while (node != null)
-                {
-                    //If the value of the node & node.next are the same. its duplicate since its a sorted list. 
-                    if ((node.next != null) && (node.next.val == node.val))
-                    {
-                        //change the currentNodes pointer.
-                        node.next = node.next.next;
-                    }
-                    else
-                    {
-                        //Otherwise iterate the node. This only happens during the else to guarantee multiple duplicates are caught. 
-                        node = node.next;
-                    }
-                }
-
-                return head;
-            }
-
-
-
-
-
-            /*******************************************************************************************************************
-            *   O(n Log n) runtime.
-            *   Merge Sort - Breaks the arrays into smaller components. then merges & compares them recursively. 
-            *********************************************************************************************************************/
-
             public static int[] MergeSort(int[] array)
             {
+
+                /*******************************************************************************************************************
+                *   O(n Log n) runtime.
+                *   Merge Sort - Breaks the arrays into smaller components. then merges & compares them recursively. 
+                *********************************************************************************************************************/
+
+
                 //Define array variables
                 int[] left;
                 int[] right;
@@ -222,7 +125,93 @@ namespace DataStructuresAndAlgorithimsV2
             }
         }
 
+        public static string LongestCommonPrefix(string[] strs)
+        {
 
+            /*******************************************************************************************************************
+            *   O(n^2) Runtime? Possibly O(n)
+            *   Given a array of strings. Finds the longest prefix that all strings in array contains. 
+            *********************************************************************************************************************/
+
+            //If only on item in array return the entire string.
+            if (strs.Length == 1)
+            {
+                return strs[0];
+            }
+
+
+            var prefixString = "";
+
+            //Iterate over the length of the first string in array.
+            for (int i = 0; i < strs[0].Length; i++)
+            {
+
+                foreach (string str in strs)
+                {
+                    //If iteration of first string is longer than any word in array. prefix is finished. 
+                    if (i > str.Length - 1)
+                    {
+                        return prefixString;
+                    }
+
+
+                    //If the first array items character != the current strings character. Return prefix. 
+                    if (strs[0][i] != str[i])
+                    {
+                        return prefixString;
+                    }
+                }
+
+                prefixString += strs[0][i];
+            }
+
+
+            return prefixString;
+        }
+
+        public class ListNode 
+        {
+            public int val;
+            public ListNode next;
+
+            public ListNode(int val=0, ListNode next=null) 
+            {
+                this.val = val;
+                this.next = next;
+            }
+        }
+
+
+        public static ListNode DeleteDuplicatesFromSortedList(ListNode head)
+        {
+
+            /*******************************************************************************************************************
+            *   O(n) runtime.
+            *   Deletes duplicates from sorted singly linked list. Basically checks the first value against second and changes pointer if same
+            *********************************************************************************************************************/
+
+
+            //We create a currentNode
+            var node = head;
+
+            //Check for null value as loop progresses
+            while (node != null)
+            {
+                //If the value of the node & node.next are the same. its duplicate since its a sorted list. 
+                if ((node.next != null) && (node.next.val == node.val))
+                {
+                    //change the currentNodes pointer.
+                    node.next = node.next.next;
+                }
+                else
+                {
+                    //Otherwise iterate the node. This only happens during the else to guarantee multiple duplicates are caught. 
+                    node = node.next;
+                }
+            }
+
+            return head;
+        }
 
 
 
@@ -576,6 +565,84 @@ namespace DataStructuresAndAlgorithimsV2
 
             return arr3;
         }
+
+        public static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
+        {
+
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Receiving two linked list. Add the numbers at each position
+            *   
+            ********************************************************************/
+
+            var carry = 0;
+
+            var dummy = new ListNode(-1);
+            var cur = dummy;
+
+            while (l1 != null || l2 != null || carry != 0)
+            {
+                var l1Number = l1 != null ? l1.val : 0;
+                var l2Number = l2 != null ? l2.val : 0;
+
+
+                var oneResult = l1Number + l2Number + carry;
+
+                cur.next = new ListNode(oneResult % 10);
+                carry = oneResult / 10;
+
+                cur = cur.next;
+
+                if (l1 != null) l1 = l1.next;
+                if (l2 != null) l2 = l2.next;
+            }
+
+            var head = dummy.next;
+            dummy.next = null;
+
+            return head;
+        }
+
+        public static int[] PlusOne(int[] digits)
+        {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Adds one to the final digit in array. Assuming the array is a integer value. 
+            ********************************************************************/
+
+            int carrier = 1;
+
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+                //Adds 1 to the last value. Propagates the carry up the number if required.  
+                int temp = digits[i] + carrier;
+
+                digits[i] = temp % 10;
+                carrier = temp / 10;
+            }
+
+            if (carrier == 1)
+            {
+                //This happens when the entire number has carry. Puts carry at front. then adds array digits to list. 
+                List<int> temp = new List<int>();
+
+                temp.Add(carrier);
+
+                foreach (var n in digits)
+                {
+                    temp.Add(n);
+                }
+
+                return temp.ToArray();
+            }
+
+            return digits;
+        }
+
+
+
+
+
 
         public static int LengthOfLastWord(string s)
         {
