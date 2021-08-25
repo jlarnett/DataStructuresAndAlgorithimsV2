@@ -639,9 +639,6 @@ namespace DataStructuresAndAlgorithimsV2
             return digits;
         }
 
-
-
-
         public static int LengthOfLastWord(string s)
         {
             /*******************************************************************
@@ -671,5 +668,47 @@ namespace DataStructuresAndAlgorithimsV2
 
             return length;
         }
+
+        public static int SingleNumber(int[] nums)
+        {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Finds the single number if given array of pair digits and one single digit. 
+            ********************************************************************/
+
+            var singleNumber = 0;
+
+            foreach (var num in nums)
+            {
+                singleNumber ^= num;
+            }
+
+            return singleNumber;
+
+        }
+
+        public static int SingleNumber2(int[] nums) 
+        {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Finds the single number if given array of pair digits and one single digit.
+            *   Uses hashset.
+            ********************************************************************/
+            var hashSet = new HashSet<int>();
+        
+            for(int i = 0; i < nums.Length; ++i)
+            {
+                if(hashSet.Contains(nums[i]))
+                {
+                    hashSet.Remove(nums[i]);
+                }
+                else
+                {
+                    hashSet.Add(nums[i]);
+                }
+            }
+            return hashSet.ElementAt(0);
+        }
+
     }
 }

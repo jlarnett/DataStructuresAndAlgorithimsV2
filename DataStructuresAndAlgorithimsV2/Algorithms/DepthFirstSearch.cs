@@ -13,6 +13,10 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
     class DNode
     {
+        /*******************************************************************
+        *   Basic Binary Tree Node implementation. Used for DFS
+        ********************************************************************/
+
         public DNode left { get; set; }
         public DNode right { get; set; }
         public int value { get; set; }
@@ -27,6 +31,10 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
     class DBinarySearchTree
     {
+        /*******************************************************************
+        *   Basic Binary Tree Implementation with basic Insert for it. Used for DFS
+        *   DFS functions added. 
+        ********************************************************************/
         public DNode root;
 
         public DBinarySearchTree()
@@ -71,6 +79,11 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
         public List<int> DFSInOrder()
         {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Initial Call of DFS InOrder. Passes empty list & root to DFS traversal.
+            ********************************************************************/
+
             List<int> result = new List<int>();
             TraverseInOrder(this.root, result);
             return result;
@@ -78,6 +91,11 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
         public List<int> DFSPreOrder()
         {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Initial Call of DFS PreOrder. Passes empty list & root to DFS traversal.
+            ********************************************************************/
+
             List<int> result = new List<int>();
             TraversePreOrder(this.root, result);
             return result;
@@ -85,6 +103,11 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
         public List<int> DFSPostOrder()
         {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   Initial call of DFS PostOrder. Passes empty list & root to DFS traversal.
+            ********************************************************************/
+
             List<int> result = new List<int>();
             TraversePostOrder(this.root, result);
             return result;
@@ -93,6 +116,11 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
         public List<int> TraverseInOrder(DNode node, List<int> list)
         {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   DFS Preorder Traversal. Recursive
+            ********************************************************************/
+
             if (node.left != null)
             {
                 TraverseInOrder(node.left, list);
@@ -110,6 +138,11 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
         public List<int> TraversePreOrder(DNode node, List<int> list)
         {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   DFS Preorder Traversal. Recursive
+            ********************************************************************/
+
             list.Add(node.value);
 
             if (node.left != null)
@@ -127,6 +160,11 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
         public List<int> TraversePostOrder(DNode node, List<int> list)
         {
+            /*******************************************************************
+            *   O(n) Time Complexity
+            *   DFS Postorder Traversal. Recursive.
+            ********************************************************************/
+
             if (node.left != null)
             {
                 TraversePostOrder(node.left, list);

@@ -10,17 +10,8 @@ namespace DataStructuresAndAlgorithimsV2
     {
         static void Main(string[] args)
         {
-            int[] array = {3, 2, 1, 5, 20, 55, 400, 70, 24, 11, 5, 42, 990, 1000, 433, 400};
-            PrintArray(array);
-
-            Console.WriteLine();
-
-            int[] sortedArray = ArrayAlgorithms.MergeSortClass.MergeSort(array);
-            PrintArray(sortedArray);
-
-            ArrayList newList = new ArrayList();
-            newList.Add(5);
-
+            int[] newArray = new[] {2, 2, 4, 4, 5, 9, 9, 10, 10};
+            Console.WriteLine(ArrayAlgorithms.SingleNumber(newArray));
         }
 
         static void PrintArray(int[] array)
