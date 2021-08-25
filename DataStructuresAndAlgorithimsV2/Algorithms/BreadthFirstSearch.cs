@@ -8,8 +8,6 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 {
     class BreadthFirstSearch
     {
-
-
         public static List<int> BreadthFirstSearchIterative(Node currentNode)
         {
             /*******************************************************************
@@ -73,6 +71,9 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
     class Node
     {
+        /*******************************************************************
+        *   Basic Binary Tree Node Implementation.
+        ********************************************************************/
         public Node left { get; set; }
         public Node right { get; set; }
         public int value { get; set; }
@@ -88,6 +89,9 @@ namespace DataStructuresAndAlgorithimsV2.Algorithms
 
     class BinarySearchTree
     {
+        /*******************************************************************
+        *   Basic Binary Tree Implementation with basic Insert for it. Used for DFS
+        ********************************************************************/
         public Node root;
 
         public BinarySearchTree()
